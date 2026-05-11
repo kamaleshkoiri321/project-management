@@ -64,13 +64,16 @@
 
             // Simulate server delay
             setTimeout(() => {
-                const username = document.getElementById('username').value;
-                const password = document.getElementById('password').value;
+                const usernameInput = document.getElementById('username').value;
+                const passwordInput = document.getElementById('password').value;
 
-                // For simulation purposes, any non-empty input is "correct"
-                if (username && password) {
+                // Hardcoded credentials for frontend-only verification
+                const VALID_USERNAME = 'pm_user';
+                const VALID_PASSWORD = 'pm123';
+
+                if (usernameInput === VALID_USERNAME && passwordInput === VALID_PASSWORD) {
                     localStorage.setItem('loggedin', 'true');
-                    localStorage.setItem('username', username);
+                    localStorage.setItem('username', 'ABC'); // Using ABC as the name per previous request
                     window.location.href = 'pm_dashboard.html';
                 } else {
                     document.getElementById('error-message').style.display = 'block';
