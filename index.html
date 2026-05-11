@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>xyz Solutions — Project Management Portal</title>
+    <meta name="description" content="xyz Solutions - Project Management Portal">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="static/assets/logo.png" alt="xyz" style="height:32px">
+                <span>xyz</span>
+            </a>
+            <ul class="nav-menu" id="nav-menu">
+                <li id="nav-dashboard" style="display: none;"><a href="pm_dashboard.html" class="nav-link">Project Dashboard</a></li>
+                <li id="nav-logout" style="display: none;"><a href="#" onclick="logout()" class="nav-link nav-cta"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                <li id="nav-login"><a href="login.html" class="nav-link nav-cta"><i class="fas fa-lock"></i> Portal Login</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger" onclick="document.getElementById('nav-menu').classList.toggle('active')">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero" style="min-height: 80vh; display: flex; align-items: center; background: linear-gradient(135deg, #0a1628 0%, #1a2d4a 100%);">
+        <div class="container">
+            <div style="max-width: 800px; margin: 0 auto; text-align: center">
+                <span class="hero-badge" style="background: rgba(37, 99, 235, 0.15); color: var(--accent-glow); border: 1px solid rgba(37, 99, 235, 0.25);"><i class="fas fa-shield-halved"></i> Secured Enterprise Gateway</span>
+                <h1 style="font-size: 3.2rem; margin: 24px 0; line-height: 1.1; color: #fff">Welcome to <span style="color: var(--accent-glow)">Project Portal</span></h1>
+                <p style="font-size: 1.2rem; color: var(--text-muted); margin-bottom: 40px; line-height: 1.7;">The central hub for project oversight, client collaboration, and internal site management. Please log in to access your dashboard.</p>
+
+                <div style="display: flex; gap: 20px; justify-content: center">
+                    <a href="pm_dashboard.html" id="hero-dashboard" class="btn btn-primary btn-lg" style="display: none;"><i class="fas fa-gauge"></i> Enter PM Dashboard</a>
+                    <a href="login.html" id="hero-login" class="btn btn-primary btn-lg"><i class="fas fa-sign-in-alt"></i> Portal Login</a>
+                </div>
+
+                <div style="margin-top: 80px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px">
+                    <div style="background: var(--glass); border: 1px solid var(--glass-border); padding: 32px; border-radius: 24px; text-align: left; transition: var(--transition); backdrop-filter: blur(10px);" class="feature-hover">
+                        <div style="width: 48px; height: 48px; background: rgba(37, 99, 235, 0.15); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--accent-glow); margin-bottom: 20px">
+                            <i class="fas fa-folder-open"></i>
+                        </div>
+                        <h3 style="color: #fff; margin-bottom: 12px">Project Sites</h3>
+                        <p style="color: var(--text-muted); font-size: 0.95rem">Manage all project websites, track deployment status, and monitor uptime.</p>
+                    </div>
+                    <div style="background: var(--glass); border: 1px solid var(--glass-border); padding: 32px; border-radius: 24px; text-align: left; transition: var(--transition); backdrop-filter: blur(10px);" class="feature-hover">
+                        <div style="width: 48px; height: 48px; background: rgba(37, 99, 235, 0.15); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--accent-glow); margin-bottom: 20px">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3 style="color: #fff; margin-bottom: 12px">Project Analytics</h3>
+                        <p style="color: var(--text-muted); font-size: 0.95rem">Monitor project progress, budget allocation, and delivery timelines.</p>
+                    </div>
+                    <div style="background: var(--glass); border: 1px solid var(--glass-border); padding: 32px; border-radius: 24px; text-align: left; transition: var(--transition); backdrop-filter: blur(10px);" class="feature-hover">
+                        <div style="width: 48px; height: 48px; background: rgba(37, 99, 235, 0.15); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--accent-glow); margin-bottom: 20px">
+                            <i class="fas fa-users-viewfinder"></i>
+                        </div>
+                        <h3 style="color: #fff; margin-bottom: 12px">Client Portals</h3>
+                        <p style="color: var(--text-muted); font-size: 0.95rem">Secure access for clients to review project milestones and deliverables.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid" style="grid-template-columns: 1.5fr 1fr 1fr">
+                <div class="footer-brand">
+                    <a href="index.html" class="nav-logo">
+                        <img src="static/assets/logo.png" alt="xyz" style="height:32px">
+                        <span>xyz</span>
+                    </a>
+                    <p style="margin-top:12px">Internal Project Management Portal. Confidential and Proprietary.</p>
+                </div>
+                <div>
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="login.html">Portal Login</a></li>
+                        <li><a href="pm_dashboard.html">Project Sites</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Support</h4>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> it-support@xyz.com</li>
+                        <li><i class="fas fa-phone"></i> +91 124 456 7000</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 xyz Solutions Pvt. Ltd. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <style>
+        .feature-hover:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-glow);
+            box-shadow: 0 20px 40px rgba(37, 99, 235, 0.15);
+        }
+    </style>
+
+    <script src="static/js/main.js"></script>
+    <script>
+        // Check login state
+        if (localStorage.getItem('loggedin') === 'true') {
+            document.getElementById('nav-dashboard').style.display = 'block';
+            document.getElementById('nav-logout').style.display = 'block';
+            document.getElementById('nav-login').style.display = 'none';
+            document.getElementById('hero-dashboard').style.display = 'inline-flex';
+            document.getElementById('hero-login').style.display = 'none';
+        }
+
+        function logout() {
+            localStorage.removeItem('loggedin');
+            window.location.reload();
+        }
+    </script>
+</body>
+</html>

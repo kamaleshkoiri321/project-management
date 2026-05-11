@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Documents — xyz SOLUTIONS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="static/css/dashboard.css">
+</head>
+<body>
+<div class="portal-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-brand">
+                <img src="static/assets/logo.png" alt="xyz">
+                <div>
+                    <div style="font-size: 0.9rem; line-height: 1.1">XYZ SOLUTIONS</div>
+                    <div style="font-size: 0.6rem; color: #94a3b8; font-weight: 400">PVT. LTD.</div>
+                </div>
+            </div>
+            <div class="sidebar-profile">
+                <div style="width:48px; height:48px; background:#f1f5f9; border-radius:12px; display:flex; align-items:center; justify-content:center; font-weight:700; color:#1e293b; font-size:1.2rem">AB</div>
+                <div class="info">
+                    <h4 id="user-name">ABC</h4>
+                    <p>Project Manager</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar-section">Main Navigation</div>
+        <nav class="sidebar-menu">
+            <a href="pm_dashboard.html" class="sidebar-link">
+                <i class="fas fa-house"></i> Dashboard
+            </a>
+            <a href="pm_dashboard.html" class="sidebar-link">
+                <i class="fas fa-folder-open"></i> Project Sites
+            </a>
+            <a href="#" class="sidebar-link">
+                <i class="fas fa-check-square"></i> Tasks
+            </a>
+            <a href="#" class="sidebar-link">
+                <i class="fas fa-users"></i> Team
+            </a>
+            <a href="documents.html" class="sidebar-link active">
+                <i class="fas fa-file-lines"></i> Documents
+            </a>
+            <a href="#" onclick="logout()" class="sidebar-link" style="margin-top: 20px; color: #fca5a5;">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </a>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="portal-main">
+        <header class="topbar">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search documents...">
+            </div>
+            <div class="topbar-actions">
+                <div style="display:flex; align-items:center; gap:12px">
+                    <div style="text-align:right">
+                        <div id="top-user-name" style="font-size:0.85rem; font-weight:700">ABC</div>
+                        <div style="font-size:0.75rem; color:#64748b">Project Manager</div>
+                    </div>
+                    <div style="width:36px; height:36px; background:#f1f5f9; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:700; color:#1e293b; font-size:0.8rem">AB</div>
+                </div>
+            </div>
+        </header>
+
+        <div class="portal-content">
+            <div class="page-title">
+                <h2>Project Documents</h2>
+                <p>Upload and manage important project documentation</p>
+            </div>
+
+            <div class="main-grid" style="grid-template-columns: 1fr">
+                <div class="panel">
+                    <div class="panel-header">
+                        <h3>All Documents</h3>
+                        <button class="btn btn-sm btn-primary" onclick="document.getElementById('upload-modal').style.display='flex'"><i class="fas fa-plus"></i> Upload Document</button>
+                    </div>
+                    <div class="table-wrapper" style="border:none">
+                        <table class="project-table">
+                            <thead>
+                                <tr>
+                                    <th>Document Name</th>
+                                    <th>Project</th>
+                                    <th>Type</th>
+                                    <th>Uploaded By</th>
+                                    <th>Date</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div style="display:flex; align-items:center; gap:12px">
+                                            <i class="fas fa-file-pdf" style="color:#2563eb; font-size:1.2rem"></i>
+                                            <span style="font-weight:600">Project Requirements</span>
+                                        </div>
+                                    </td>
+                                    <td>Website Revamp</td>
+                                    <td><span class="badge" style="background:#dbeafe; color:#2563eb">PDF</span></td>
+                                    <td>ABC</td>
+                                    <td>11 May 2026</td>
+                                    <td>
+                                        <div style="display:flex; gap:8px">
+                                            <button class="btn btn-sm btn-outline" style="border-color:#e2e8f0; color:#64748b"><i class="fas fa-download"></i></button>
+                                            <button class="btn btn-sm btn-outline" style="border-color:#e2e8f0; color:#ef4444"><i class="fas fa-trash"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div style="display:flex; align-items:center; gap:12px">
+                                            <i class="fas fa-file-image" style="color:#2563eb; font-size:1.2rem"></i>
+                                            <span style="font-weight:600">Design Mockups</span>
+                                        </div>
+                                    </td>
+                                    <td>Website Revamp</td>
+                                    <td><span class="badge" style="background:#f3e8ff; color:#a855f7">Image</span></td>
+                                    <td>ABC</td>
+                                    <td>11 May 2026</td>
+                                    <td>
+                                        <div style="display:flex; gap:8px">
+                                            <button class="btn btn-sm btn-outline" style="border-color:#e2e8f0; color:#64748b"><i class="fas fa-download"></i></button>
+                                            <button class="btn btn-sm btn-outline" style="border-color:#e2e8f0; color:#ef4444"><i class="fas fa-trash"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div style="display:flex; align-items:center; gap:12px">
+                                            <i class="fas fa-file-pdf" style="color:#2563eb; font-size:1.2rem"></i>
+                                            <span style="font-weight:600">Technical Architecture</span>
+                                        </div>
+                                    </td>
+                                    <td>Mobile App Development</td>
+                                    <td><span class="badge" style="background:#dbeafe; color:#2563eb">PDF</span></td>
+                                    <td>ABC</td>
+                                    <td>11 May 2026</td>
+                                    <td>
+                                        <div style="display:flex; gap:8px">
+                                            <button class="btn btn-sm btn-outline" style="border-color:#e2e8f0; color:#64748b"><i class="fas fa-download"></i></button>
+                                            <button class="btn btn-sm btn-outline" style="border-color:#e2e8f0; color:#ef4444"><i class="fas fa-trash"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div style="display:flex; align-items:center; gap:12px">
+                                            <i class="fas fa-file-lines" style="color:#2563eb; font-size:1.2rem"></i>
+                                            <span style="font-weight:600">API Documentation</span>
+                                        </div>
+                                    </td>
+                                    <td>ERP System</td>
+                                    <td><span class="badge" style="background:#e0f2fe; color:#0ea5e9">Markdown</span></td>
+                                    <td>ABC</td>
+                                    <td>11 May 2026</td>
+                                    <td>
+                                        <div style="display:flex; gap:8px">
+                                            <button class="btn btn-sm btn-outline" style="border-color:#e2e8f0; color:#64748b"><i class="fas fa-download"></i></button>
+                                            <button class="btn btn-sm btn-outline" style="border-color:#e2e8f0; color:#ef4444"><i class="fas fa-trash"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <!-- Repeated entries as shown in image -->
+                                <tr>
+                                    <td>
+                                        <div style="display:flex; align-items:center; gap:12px">
+                                            <i class="fas fa-file-pdf" style="color:#2563eb; font-size:1.2rem"></i>
+                                            <span style="font-weight:600">Project Requirements</span>
+                                        </div>
+                                    </td>
+                                    <td>Website Revamp</td>
+                                    <td><span class="badge" style="background:#dbeafe; color:#2563eb">PDF</span></td>
+                                    <td>ABC</td>
+                                    <td>11 May 2026</td>
+                                    <td>
+                                        <div style="display:flex; gap:8px">
+                                            <button class="btn btn-sm btn-outline" style="border-color:#e2e8f0; color:#64748b"><i class="fas fa-download"></i></button>
+                                            <button class="btn btn-sm btn-outline" style="border-color:#e2e8f0; color:#ef4444"><i class="fas fa-trash"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div style="display:flex; align-items:center; gap:12px">
+                                            <i class="fas fa-file-image" style="color:#2563eb; font-size:1.2rem"></i>
+                                            <span style="font-weight:600">Design Mockups</span>
+                                        </div>
+                                    </td>
+                                    <td>Website Revamp</td>
+                                    <td><span class="badge" style="background:#f3e8ff; color:#a855f7">Image</span></td>
+                                    <td>ABC</td>
+                                    <td>11 May 2026</td>
+                                    <td>
+                                        <div style="display:flex; gap:8px">
+                                            <button class="btn btn-sm btn-outline" style="border-color:#e2e8f0; color:#64748b"><i class="fas fa-download"></i></button>
+                                            <button class="btn btn-sm btn-outline" style="border-color:#e2e8f0; color:#ef4444"><i class="fas fa-trash"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div style="display:flex; align-items:center; gap:12px">
+                                            <i class="fas fa-file-pdf" style="color:#2563eb; font-size:1.2rem"></i>
+                                            <span style="font-weight:600">Technical Architecture</span>
+                                        </div>
+                                    </td>
+                                    <td>Mobile App Development</td>
+                                    <td><span class="badge" style="background:#dbeafe; color:#2563eb">PDF</span></td>
+                                    <td>ABC</td>
+                                    <td>11 May 2026</td>
+                                    <td>
+                                        <div style="display:flex; gap:8px">
+                                            <button class="btn btn-sm btn-outline" style="border-color:#e2e8f0; color:#64748b"><i class="fas fa-download"></i></button>
+                                            <button class="btn btn-sm btn-outline" style="border-color:#e2e8f0; color:#ef4444"><i class="fas fa-trash"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div style="display:flex; align-items:center; gap:12px">
+                                            <i class="fas fa-file-lines" style="color:#2563eb; font-size:1.2rem"></i>
+                                            <span style="font-weight:600">API Documentation</span>
+                                        </div>
+                                    </td>
+                                    <td>ERP System</td>
+                                    <td><span class="badge" style="background:#e0f2fe; color:#0ea5e9">Markdown</span></td>
+                                    <td>ABC</td>
+                                    <td>11 May 2026</td>
+                                    <td>
+                                        <div style="display:flex; gap:8px">
+                                            <button class="btn btn-sm btn-outline" style="border-color:#e2e8f0; color:#64748b"><i class="fas fa-download"></i></button>
+                                            <button class="btn btn-sm btn-outline" style="border-color:#e2e8f0; color:#ef4444"><i class="fas fa-trash"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+<!-- Simple Modal (Hidden by default) -->
+<div id="upload-modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.5); z-index:2000; align-items:center; justify-content:center; backdrop-filter:blur(5px)">
+    <div style="background:#fff; padding:32px; border-radius:16px; width:100%; max-width:500px">
+        <h3 style="margin-bottom:20px; color: #1e293b">Upload New Document</h3>
+        <form>
+            <div class="form-group">
+                <label style="color: #64748b">Document Name</label>
+                <input type="text" class="form-control" placeholder="e.g. Project Specs v1">
+            </div>
+            <div class="form-group">
+                <label style="color: #64748b">Related Project</label>
+                <select class="form-control">
+                    <option value="1">Website Revamp</option>
+                    <option value="2">Employee Portal</option>
+                    <option value="3">CRM Migration</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label style="color: #64748b">Select File</label>
+                <input type="file" class="form-control">
+            </div>
+            <div style="display:flex; gap:12px; margin-top:24px">
+                <button type="button" class="btn btn-primary" style="flex:1" onclick="alert('Upload successful! (Simulated)'); document.getElementById('upload-modal').style.display='none'">Upload Now</button>
+                <button type="button" class="btn btn-outline" style="flex:1; color:#1e293b; border-color:#e2e8f0" onclick="document.getElementById('upload-modal').style.display='none'">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="static/js/main.js"></script>
+<script>
+    // Security check
+    if (localStorage.getItem('loggedin') !== 'true') {
+        window.location.href = 'login.html';
+    }
+
+    // Set user info
+    const username = localStorage.getItem('username') || 'User';
+    document.getElementById('user-name').textContent = username;
+    document.getElementById('top-user-name').textContent = username;
+    document.getElementById('user-avatar').src = `https://ui-avatars.com/api/?name=${username}&background=random`;
+    document.getElementById('top-user-avatar').src = `https://ui-avatars.com/api/?name=${username}&background=random`;
+
+    function logout() {
+        localStorage.removeItem('loggedin');
+        window.location.href = 'login.html';
+    }
+</script>
+</body>
+</html>

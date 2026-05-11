@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Sites — xyz SOLUTIONS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="static/css/dashboard.css">
+</head>
+<body>
+<div class="portal-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-brand">
+                <img src="static/assets/logo.png" alt="xyz">
+                <div>
+                    <div style="font-size: 0.9rem; line-height: 1.1">XYZ SOLUTIONS</div>
+                    <div style="font-size: 0.6rem; color: #94a3b8; font-weight: 400">PVT. LTD.</div>
+                </div>
+            </div>
+            <div class="sidebar-profile">
+                <div style="width:48px; height:48px; background:#f1f5f9; border-radius:12px; display:flex; align-items:center; justify-content:center; font-weight:700; color:#1e293b; font-size:1.2rem">AB</div>
+                <div class="info">
+                    <h4 id="user-name">ABC</h4>
+                    <p>Project Manager</p>
+                    <div style="display:flex; align-items:center; gap:4px">
+                        <span class="status-dot"></span>
+                        <span style="font-size: 0.65rem; color: #22c55e">Online</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar-section">Main Navigation</div>
+        <nav class="sidebar-menu">
+            <a href="pm_dashboard.html" class="sidebar-link active">
+                <i class="fas fa-house"></i> Dashboard
+            </a>
+            <a href="pm_dashboard.html" class="sidebar-link">
+                <i class="fas fa-folder-open"></i> Project Sites
+            </a>
+            <a href="#" class="sidebar-link">
+                <i class="fas fa-check-square"></i> Tasks
+            </a>
+            <a href="#" class="sidebar-link">
+                <i class="fas fa-users"></i> Team
+            </a>
+            <a href="documents.html" class="sidebar-link">
+                <i class="fas fa-file-lines"></i> Documents
+            </a>
+            <a href="#" class="sidebar-link">
+                <i class="fas fa-calendar-days"></i> Calendar
+            </a>
+            <a href="#" class="sidebar-link">
+                <i class="fas fa-clock"></i> Timesheet
+            </a>
+            <a href="#" class="sidebar-link">
+                <i class="fas fa-chart-pie"></i> Reports
+            </a>
+            <a href="#" class="sidebar-link">
+                <i class="fas fa-user-group"></i> Clients
+            </a>
+            <a href="#" class="sidebar-link">
+                <i class="fas fa-file-invoice-dollar"></i> Invoices
+            </a>
+            <a href="#" class="sidebar-link">
+                <i class="fas fa-message"></i> Messages
+                <span class="badge">12</span>
+            </a>
+            <a href="#" class="sidebar-link">
+                <i class="fas fa-gear"></i> Settings
+            </a>
+            <a href="#" onclick="logout()" class="sidebar-link" style="margin-top: 20px; color: #fca5a5;">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </a>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="portal-main">
+        <header class="topbar">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search projects, tasks, documents...">
+            </div>
+            <div class="topbar-actions">
+                <div class="top-icon"><i class="fas fa-bell"></i><span class="badge">3</span></div>
+                <div class="top-icon"><i class="fas fa-envelope"></i><span class="badge">5</span></div>
+                <div style="display:flex; align-items:center; gap:12px; border-left:1px solid #e2e8f0; padding-left:20px; margin-left:10px">
+                    <div style="text-align:right">
+                        <div id="top-user-name" style="font-size:0.85rem; font-weight:700">ABC</div>
+                        <div style="font-size:0.75rem; color:#64748b">Project Manager</div>
+                    </div>
+                    <div style="width:36px; height:36px; background:#f1f5f9; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:700; color:#1e293b; font-size:0.8rem">AB</div>
+                </div>
+            </div>
+        </header>
+
+        <div class="portal-content">
+            <div class="page-title">
+                <h2>Project Sites</h2>
+                <p>Manage all project websites and portals</p>
+            </div>
+
+            <!-- Stats Row -->
+            <div class="stats-row">
+                <div class="stat-box">
+                    <div class="stat-icon blue"><i class="fas fa-folder-tree"></i></div>
+                    <div class="stat-info">
+                        <h3>06</h3>
+                        <p>Total Project Sites</p>
+                    </div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-icon green"><i class="fas fa-circle-check"></i></div>
+                    <div class="stat-info">
+                        <h3>04</h3>
+                        <p>Active Sites</p>
+                    </div>
+                </div>
+                <div class="stat-box orange">
+                    <div class="stat-icon orange"><i class="fas fa-clock"></i></div>
+                    <div class="stat-info">
+                        <h3>01</h3>
+                        <p>Under Development</p>
+                    </div>
+                </div>
+                <div class="stat-box purple">
+                    <div class="stat-icon purple"><i class="fas fa-box-archive"></i></div>
+                    <div class="stat-info">
+                        <h3>01</h3>
+                        <p>Archived Sites</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="main-grid">
+                <div class="left-col">
+                    <!-- Projects Table -->
+                    <div class="panel">
+                        <div class="panel-header">
+                            <h3>All Project Sites</h3>
+                            <div style="display:flex; gap:12px">
+                                <button class="btn btn-sm btn-outline" style="color:#64748b; border-color:#e2e8f0"><i class="fas fa-filter"></i> Filter</button>
+                                <button class="btn btn-sm btn-primary"><i class="fas fa-plus"></i> Add New Site</button>
+                            </div>
+                        </div>
+                        <div class="table-wrapper" style="border:none">
+                            <table class="project-table">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Project Site</th>
+                                        <th>Client</th>
+                                        <th>Project Manager</th>
+                                        <th>Status</th>
+                                        <th>Start Date</th>
+                                        <th>Domain</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>
+                                            <div class="project-info">
+                                                <div class="project-initials" style="background: hsl(220, 70%, 50%)">WR</div>
+                                                <div>
+                                                    <div style="font-weight:700">Website Revamp</div>
+                                                    <div style="font-size:0.7rem; color:#94a3b8">Corporate website redesign...</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>TechCorp Ltd.</td>
+                                        <td>ABC</td>
+                                        <td><span class="status-badge active">Active</span></td>
+                                        <td>10 May 2024</td>
+                                        <td style="color:#2563eb">wr.xyzsolutions.com</td>
+                                        <td><i class="fas fa-ellipsis-h" style="color:#94a3b8; cursor:pointer"></i></td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>
+                                            <div class="project-info">
+                                                <div class="project-initials" style="background: hsl(150, 70%, 50%)">EP</div>
+                                                <div>
+                                                    <div style="font-weight:700">Employee Portal</div>
+                                                    <div style="font-size:0.7rem; color:#94a3b8">Internal management system...</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>Global Bio</td>
+                                        <td>DEF</td>
+                                        <td><span class="status-badge active">Active</span></td>
+                                        <td>15 Jun 2024</td>
+                                        <td style="color:#2563eb">portal.globalbio.com</td>
+                                        <td><i class="fas fa-ellipsis-h" style="color:#94a3b8; cursor:pointer"></i></td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>
+                                            <div class="project-info">
+                                                <div class="project-initials" style="background: hsl(40, 70%, 50%)">CM</div>
+                                                <div>
+                                                    <div style="font-weight:700">CRM Migration</div>
+                                                    <div style="font-size:0.7rem; color:#94a3b8">Legacy data migration...</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>FinServe Inc.</td>
+                                        <td>GHI</td>
+                                        <td><span class="status-badge under-dev">Under Dev</span></td>
+                                        <td>01 Aug 2024</td>
+                                        <td style="color:#2563eb">crm.finserve.com</td>
+                                        <td><i class="fas fa-ellipsis-h" style="color:#94a3b8; cursor:pointer"></i></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Project Details Section -->
+                    <div class="panel">
+                        <div class="panel-header">
+                            <h3>Project Site Details</h3>
+                        </div>
+                        <div class="site-preview-card">
+                            <div style="display:grid; grid-template-columns: 1fr 1fr; gap:32px">
+                                <div>
+                                    <div class="preview-img">
+                                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop&q=60" alt="Preview">
+                                    </div>
+                                    <div style="display:flex; gap:12px">
+                                        <button class="btn btn-primary" style="flex:1">Manage Site</button>
+                                        <button class="btn btn-outline" style="flex:1; color:#1e293b; border-color:#e2e8f0">View Sites <i class="fas fa-external-link-alt" style="font-size:0.7rem"></i></button>
+                                        <button class="btn btn-outline" style="color:#1e293b; border-color:#e2e8f0">Site Settings</button>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px">
+                                        <h4 style="font-size:1.2rem">Website Revamp</h4>
+                                        <span class="status-badge active">Active</span>
+                                    </div>
+                                    <p style="font-size:0.85rem; color:#64748b; margin-bottom:24px">Corporate website redesign and development</p>
+                                    
+                                    <div class="site-details">
+                                        <div class="detail-item">
+                                            <p>Domain</p>
+                                            <h5 style="color:#2563eb">wr.xyzsolutions.com <i class="fas fa-external-link-alt" style="font-size:0.6rem"></i></h5>
+                                        </div>
+                                        <div class="detail-item">
+                                            <p>Client</p>
+                                            <h5>TechCorp Ltd.</h5>
+                                        </div>
+                                        <div class="detail-item">
+                                            <p>Start Date</p>
+                                            <h5>10 May 2024</h5>
+                                        </div>
+                                        <div class="detail-item">
+                                            <p>Team Members</p>
+                                            <div style="display:flex; align-items:center; margin-top:4px">
+                                                <img src="https://ui-avatars.com/api/?name=JD&background=random" style="width:24px; height:24px; border-radius:50%; border:2px solid #fff">
+                                                <img src="https://ui-avatars.com/api/?name=SK&background=random" style="width:24px; height:24px; border-radius:50%; border:2px solid #fff; margin-left:-8px">
+                                                <img src="https://ui-avatars.com/api/?name=ML&background=random" style="width:24px; height:24px; border-radius:50%; border:2px solid #fff; margin-left:-8px">
+                                                <div style="width:24px; height:24px; border-radius:50%; background:#f1f5f9; border:2px solid #fff; margin-left:-8px; display:flex; align-items:center; justify-content:center; font-size:0.6rem; color:#64748b; font-weight:700">+5</div>
+                                            </div>
+                                        </div>
+                                        <div class="detail-item">
+                                            <p>Technologies</p>
+                                            <h5>HTML, CSS, JavaScript, PHP</h5>
+                                        </div>
+                                        <div class="detail-item">
+                                            <p>Server</p>
+                                            <h5>server1.xyzsolutions.com</h5>
+                                        </div>
+                                        <div class="detail-item">
+                                            <p>Project Manager</p>
+                                            <h5>ABC</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="right-col">
+                    <!-- Site Overview -->
+                    <div class="panel">
+                        <div class="panel-header">
+                            <h3>Site Overview</h3>
+                        </div>
+                        <div style="padding:24px; text-align:center">
+                            <div style="width:180px; height:180px; margin:0 auto; position:relative; display:flex; align-items:center; justify-content:center">
+                                <svg width="100%" height="100%" viewBox="0 0 42 42">
+                                    <circle cx="21" cy="21" r="15.915" fill="transparent" stroke="#f1f5f9" stroke-width="6"></circle>
+                                    <circle cx="21" cy="21" r="15.915" fill="transparent" stroke="#2563eb" stroke-width="6" stroke-dasharray="67 33" stroke-dashoffset="25"></circle>
+                                    <circle cx="21" cy="21" r="15.915" fill="transparent" stroke="#f59e0b" stroke-width="6" stroke-dasharray="17 83" stroke-dashoffset="58"></circle>
+                                    <circle cx="21" cy="21" r="15.915" fill="transparent" stroke="#22c55e" stroke-width="6" stroke-dasharray="16 84" stroke-dashoffset="41"></circle>
+                                </svg>
+                                <div style="position:absolute">
+                                    <div style="font-size:1.5rem; font-weight:800">67%</div>
+                                    <div style="font-size:0.7rem; color:#64748b">Efficiency</div>
+                                </div>
+                            </div>
+                            <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:24px; text-align:left">
+                                <div style="font-size:0.75rem; color:#64748b"><span style="width:8px; height:8px; background:#2563eb; display:inline-block; border-radius:50%; margin-right:6px"></span> Active (4)</div>
+                                <div style="font-size:0.75rem; color:#64748b"><span style="width:8px; height:8px; background:#f59e0b; display:inline-block; border-radius:50%; margin-right:6px"></span> Under Dev (1)</div>
+                                <div style="font-size:0.75rem; color:#64748b"><span style="width:8px; height:8px; background:#22c55e; display:inline-block; border-radius:50%; margin-right:6px"></span> Archived (1)</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Links -->
+                    <div class="panel">
+                        <div class="panel-header">
+                            <h3>Quick Links</h3>
+                        </div>
+                        <div class="quick-links">
+                            <a href="#" class="quick-link"><i class="fas fa-plus-square"></i> Create New Project Site</a>
+                            <a href="#" class="quick-link"><i class="fas fa-sliders"></i> Project Sites Settings</a>
+                            <a href="#" class="quick-link"><i class="fas fa-file-invoice"></i> Site Templates</a>
+                            <a href="#" class="quick-link"><i class="fas fa-globe"></i> Domain Management</a>
+                            <a href="#" class="quick-link"><i class="fas fa-user-lock"></i> User Access Manager</a>
+                        </div>
+                    </div>
+
+                    <!-- Recent Activities -->
+                    <div class="panel">
+                        <div class="panel-header">
+                            <h3>Recent Activities</h3>
+                            <a href="#" style="font-size:0.75rem; color:#2563eb">View All</a>
+                        </div>
+                        <div class="activity-list">
+                            <div class="activity-item">
+                                <div class="act-icon green">
+                                    <i class="fas fa-arrows-rotate"></i>
+                                </div>
+                                <div class="act-content">
+                                    <h5>Site Status Updated</h5>
+                                    <p>2 mins ago</p>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="act-icon blue">
+                                    <i class="fas fa-file-arrow-up"></i>
+                                </div>
+                                <div class="act-content">
+                                    <h5>New Document Uploaded</h5>
+                                    <p>1 hour ago</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Grid -->
+            <div class="bottom-grid">
+                <div class="panel">
+                    <div class="panel-header">
+                        <h3><i class="fas fa-shield-halved" style="color:#2563eb; margin-right:8px"></i> Security Status</h3>
+                    </div>
+                    <div style="padding:24px">
+                        <div style="display:flex; justify-content:space-between; margin-bottom:12px; font-size:0.85rem">
+                            <span style="color:#64748b"><i class="fas fa-lock" style="width:16px"></i> SSL Certificate</span>
+                            <span style="font-weight:600">Valid (Let's Encrypt)</span>
+                        </div>
+                        <div style="display:flex; justify-content:space-between; margin-bottom:12px; font-size:0.85rem">
+                            <span style="color:#64748b"><i class="fas fa-history" style="width:16px"></i> Last Backup</span>
+                            <span style="font-weight:600">Today, 02:00 AM</span>
+                        </div>
+                        <div style="display:flex; justify-content:space-between; margin-bottom:12px; font-size:0.85rem">
+                            <span style="color:#64748b"><i class="fas fa-magnifying-glass" style="width:16px"></i> Malware Scan</span>
+                            <span style="color:#22c55e; font-weight:700">Clean</span>
+                        </div>
+                        <div style="display:flex; justify-content:space-between; font-size:0.85rem">
+                            <span style="color:#64748b"><i class="fas fa-fire-wall" style="width:16px"></i> Firewall</span>
+                            <span style="color:#22c55e; font-weight:700">Enabled</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <div class="panel-header">
+                        <h3>Site Performance <span style="font-size:0.7rem; color:#94a3b8; font-weight:400">(Last 30 Days)</span></h3>
+                    </div>
+                    <div style="padding:24px; display:grid; grid-template-columns:1fr 1fr; gap:20px">
+                        <div class="perf-item">
+                            <p style="font-size:0.75rem; color:#64748b">Visitors</p>
+                            <div style="display:flex; align-items:baseline; gap:8px">
+                                <h4 style="font-size:1.2rem">2,350</h4>
+                                <span style="font-size:0.7rem; color:#22c55e"><i class="fas fa-arrow-up"></i> 12.5%</span>
+                            </div>
+                        </div>
+                        <div class="perf-item">
+                            <p style="font-size:0.75rem; color:#64748b">Page Views</p>
+                            <div style="display:flex; align-items:baseline; gap:8px">
+                                <h4 style="font-size:1.2rem">8,450</h4>
+                                <span style="font-size:0.7rem; color:#22c55e"><i class="fas fa-arrow-up"></i> 18.7%</span>
+                            </div>
+                        </div>
+                        <div class="perf-item">
+                            <p style="font-size:0.75rem; color:#64748b">Uptime</p>
+                            <div style="display:flex; align-items:baseline; gap:8px">
+                                <h4 style="font-size:1.2rem">99.9%</h4>
+                                <span style="font-size:0.7rem; color:#22c55e"><i class="fas fa-arrow-up"></i> 0.1%</span>
+                            </div>
+                        </div>
+                        <div class="perf-item">
+                            <p style="font-size:0.75rem; color:#64748b">Load Time</p>
+                            <div style="display:flex; align-items:baseline; gap:8px">
+                                <h4 style="font-size:1.2rem">1.2s</h4>
+                                <span style="font-size:0.7rem; color:#22c55e"><i class="fas fa-arrow-down"></i> 0.3s</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <div class="panel-header">
+                        <h3>Storage Usage</h3>
+                    </div>
+                    <div style="padding:24px">
+                        <div style="display:flex; justify-content:space-between; align-items:baseline">
+                            <h4 style="font-size:1.1rem">12.4 GB <span style="font-size:0.8rem; color:#64748b; font-weight:400">/ 50 GB</span></h4>
+                            <span style="font-size:0.85rem; font-weight:600; color:#2563eb">24.8%</span>
+                        </div>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar" style="width: 24.8%"></div>
+                        </div>
+                        <p style="font-size:0.75rem; color:#94a3b8; margin-top:16px">Backup storage is optimized. Next auto-cleanup in 3 days.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+<script src="static/js/main.js"></script>
+<script>
+    // Security check
+    if (localStorage.getItem('loggedin') !== 'true') {
+        window.location.href = 'login.html';
+    }
+
+    // Set user info
+    const username = localStorage.getItem('username') || 'User';
+    document.getElementById('user-name').textContent = username;
+    document.getElementById('top-user-name').textContent = username;
+    document.getElementById('user-avatar').src = `https://ui-avatars.com/api/?name=${username}&background=random`;
+    document.getElementById('top-user-avatar').src = `https://ui-avatars.com/api/?name=${username}&background=random`;
+
+    function logout() {
+        localStorage.removeItem('loggedin');
+        window.location.href = 'login.html';
+    }
+</script>
+</body>
+</html>
